@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AddPage } from "../add/add";
 import { DetailPage } from "../detail/detail";
+import { FCM } from '@ionic-native/fcm';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +12,7 @@ export class HomePage {
  
     public todoList: Array<any> = [];
  
-    constructor(private navCtrl: NavController) { }
+    constructor(private navCtrl: NavController, private fcm: FCM) { }
  
     ionViewDidEnter() {
         this.todoList = JSON.parse(localStorage.getItem("arrDoList"));
